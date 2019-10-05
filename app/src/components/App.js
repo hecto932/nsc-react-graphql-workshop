@@ -17,6 +17,7 @@ const client = new ApolloClient({
   cache,
   link
 });
+
 function App() {
   return (
     <ApolloProvider client={client}>

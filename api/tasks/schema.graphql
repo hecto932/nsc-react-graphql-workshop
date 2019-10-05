@@ -25,6 +25,7 @@ type Query {
 
   "Return all the tasks"
   getTasks: [Task]
+  
 }
 
 type Mutation {
