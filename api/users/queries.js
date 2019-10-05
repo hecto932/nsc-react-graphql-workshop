@@ -8,7 +8,9 @@ const config = require("../config");
 module.exports = {
   getUsers: async (root, args, { isAuth }) => {
     debug(`getUsers`);
-    if (!isAuth) throw new AuthenticationError(`Invalid token...`);
+    if (!isAuth && config.server.auth) {
+      throw new AuthenticationError(`Invalid token...`);
+    }
 
     try {
       const userService = new UserService(config.db);
