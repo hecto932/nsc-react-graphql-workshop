@@ -19,7 +19,6 @@ module.exports = {
       const userService = new UserService(config.db);
 
       const user = await userService.find({ email });
-      debug(`cono`, user);
       if (!user) {
         throw new AuthenticationError("Unauthorized");
       }

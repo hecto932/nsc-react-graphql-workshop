@@ -6,6 +6,7 @@ const inquirer = require("inquirer");
 const minimist = require("minimist");
 const config = require("./config");
 const MongoLib = require("./services/mongo");
+const { encryptPassword, verifyPassword } = require("../lib/utils");
 
 const prompt = inquirer.createPromptModule();
 const args = minimist(process.argv);
@@ -41,7 +42,19 @@ async function setup() {
 
     // CREATING USERS
     const userService = new UserService(config.db);
-    const userInsertManyResult = await userService.insertMany(users);
+
+    const userInsertManyResult = await userService.insertMany(
+      users.map(async user => {
+        let password = await encryptPassword(
+          user.password,
+          config.bcrypt.saltRounds
+        );
+        return {
+          ...user,
+          password
+        };
+      })
+    );
 
     const taskService = new TaskService(config.db);
     const taskInsertManyResult = await taskService.insertMany(
