@@ -1,0 +1,37 @@
+{
+  "name": "graphql-todo-api",
+  "version": "1.0.0",
+  "description": "A simple GraphQL API",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production DEBUG=todo:* node server.js",
+    "dev": "NODE_ENV=development DEBUG=todo:* nodemon server.js",
+    "setup": "DEBUG=todo:* node setup.js"
+  },
+  "author": "Hector Flores <hecto932@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^2.9.5",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "graphql-depth-limit": "^1.1.0",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-tag-pluck": "^0.8.5",
+    "graphql-type-json": "^0.3.0",
+    "graphql-validation-complexity": "^0.2.5",
+    "helmet": "^3.21.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "merge-graphql-schemas": "^1.7.0",
+    "minimist": "^1.2.0",
+    "mongodb": "^3.3.2"
+  },
+  "devDependencies": {
+    "debug": "^4.1.1",
+    "inquirer": "^7.0.0",
+    "nodemon": "^1.19.3"
+  }
+}

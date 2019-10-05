@@ -1,0 +1,30 @@
+type User {
+  _id: ID!
+  name: String!
+  email: String!
+  password: String!
+  tasks: [Task!]
+  createdAt: Date
+  updatedAt: Date
+}
+
+input UserInput {
+  name: String!
+  email: String!
+  password: String!
+  createdAt: Date
+  updatedAt: Date
+}
+
+type Query {
+  "Return all the users"
+  getUsers: [User!]
+}
+
+type Mutation {
+  "Request token"
+  userLogin(email: String, password: String): JSON
+
+  "Create a user"
+  addUser(input: UserInput!): User
+}

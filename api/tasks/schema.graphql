@@ -1,0 +1,40 @@
+
+type Task {
+  _id: ID!
+  userId: ID!
+  name: String
+  done: Boolean
+  createdAt: Date
+  updatedAt: Date
+}
+
+input TaskInput {
+  name: String!
+  userId: ID!
+  done: Boolean
+  createdAt: Date
+  updatedAt: Date
+}
+
+input TaskEditInput {
+  name: String
+  done: Boolean
+}
+
+type Query {
+
+  "Return all the tasks"
+  getTasks: [Task]
+}
+
+type Mutation {
+  "Create a task"
+  createTask(input: TaskInput!): Task
+
+  "Update a task"
+  editTask(_id: ID!, input: TaskEditInput): Task
+
+  "Delete a task"
+  deleteTask(_id: ID!): Boolean
+}
+

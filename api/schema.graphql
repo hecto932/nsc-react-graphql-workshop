@@ -1,0 +1,10 @@
+"""
+A scalar to represent a JSON type
+"""
+scalar JSON
+
+"""
+A scalar to represent a DateTime type
+"""
+
+scalar Date
